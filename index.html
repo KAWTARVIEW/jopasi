@@ -1,128 +1,807 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HUNANIMA - Machines Agricoles Simples</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
-      color: #333;
-    }
-    header {
-      background-color: #2e7d32; /* Vert foncé */
-      color: #fdd835; /* Jaune vif */
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    nav {
-      background-color: #fdd835;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #2e7d32;
-    }
-    .hero {
-      background: url('https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg') no-repeat center center/cover;
-      height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-      font-size: 2em;
-    }
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    section h2 {
-      color: #2e7d32;
-      margin-bottom: 20px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .gallery img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      background-color: #2e7d32;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jopasi LLC | Professional Business Consulting & Corporate Advisory</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <style>
+        /* Deep Forest Teal, Gold & Clean Cream Palette */
+        :root {
+            --bg-cream: #f4f7f6;
+            --bg-card: #ffffff;
+            --teal-deep: #0f3d3e;
+            --teal-primary: #145355;
+            --gold-accent: #d4af37;
+            --gold-soft: #fcf8e8;
+            --text-dark: #1b262c;
+            --text-muted: #52616b;
+            --border-color: #d8dee9;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Strip */
+        .top-notice {
+            background: var(--teal-deep);
+            color: #e0f2f1;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.65rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-notice div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(244, 247, 246, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--teal-deep);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .brand i {
+            color: var(--gold-accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--teal-primary);
+        }
+
+        .btn-consult {
+            background: var(--teal-primary);
+            color: #ffffff;
+            padding: 0.75rem 1.6rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(20, 83, 85, 0.25);
+        }
+
+        .btn-consult:hover {
+            background: var(--teal-deep);
+            transform: translateY(-2px);
+        }
+
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        #about {
+            padding: 5rem 0 3rem 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold-soft);
+            color: #8c7314;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            line-height: 1.15;
+            color: var(--teal-deep);
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-text h1 span {
+            color: var(--teal-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-card h4 {
+            font-size: 1.25rem;
+            color: var(--teal-deep);
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(15, 61, 62, 0.12);
+            border: 2px solid #ffffff;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .floating-card i {
+            color: var(--gold-accent);
+            background: var(--gold-soft);
+            padding: 0.75rem;
+            border-radius: 12px;
+        }
+
+        /* Interactive Business Solutions Deck Section */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 6rem auto 3rem auto;
+        }
+
+        .section-header span {
+            color: var(--teal-primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+            color: var(--teal-deep);
+            font-weight: 900;
+        }
+
+        .deck-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 6rem;
+        }
+
+        .deck-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .deck-tab-btn {
+            background: var(--bg-cream);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .deck-tab-btn.active, .deck-tab-btn:hover {
+            background: var(--teal-primary);
+            color: #ffffff;
+            border-color: var(--teal-primary);
+        }
+
+        .deck-panel {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .deck-panel.active {
+            display: grid;
+        }
+
+        .panel-text h3 {
+            font-size: 2rem;
+            color: var(--teal-deep);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .panel-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .panel-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--teal-deep);
+        }
+
+        .panel-bullets li i {
+            color: var(--gold-accent);
+        }
+
+        .panel-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--teal-primary);
+            box-shadow: 0 16px 32px rgba(20, 83, 85, 0.12);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 2rem;
+        }
+
+        .service-card-body h3 {
+            font-size: 1.25rem;
+            color: var(--teal-deep);
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        .service-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 6rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--teal-deep);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+
+        .info-row i {
+            color: var(--teal-primary);
+            background: var(--gold-soft);
+            padding: 1rem;
+            border-radius: 14px;
+        }
+
+        .info-row label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .info-row strong {
+            font-size: 1rem;
+            color: var(--teal-deep);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            background: var(--bg-cream);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--teal-primary);
+            background: #ffffff;
+        }
+
+        .submit-btn {
+            background: var(--teal-deep);
+            color: #ffffff;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--teal-primary);
+        }
+
+        /* Modal Privacy Policy */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 61, 62, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-body {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 750px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .modal-body h3 {
+            color: var(--teal-deep);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body h4 {
+            color: var(--teal-deep);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--teal-deep);
+            color: #b0cbc8;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            #about, .deck-panel, .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>HUNANIMA</h1>
-    <p>Machines Agricoles Simples et Fiables</p>
-  </header>
-
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="hero">
-    <p>Votre partenaire pour des machines agricoles durables</p>
-  </div>
-
-  <section id="about">
-    <h2>À propos de nous</h2>
-    <p>
-      Chez <strong>HUNANIMA</strong>, nous nous spécialisons dans la fabrication et la distribution de 
-      <strong>machines agricoles simples</strong> pour faciliter le travail des agriculteurs. 
-      Nos solutions combinent <em>durabilité, efficacité et innovation</em> afin de répondre aux besoins de toutes les exploitations.
-    </p>
-  </section>
-
-  <section id="gallery">
-    <h2>Nos Machines</h2>
-    <div class="gallery">
-      <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse">
-      <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Machine agricole">
-      <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Équipement agricole simple">
+    <div class="top-notice">
+        <div><i data-lucide="briefcase" size="15"></i> JOPASI LLC — Professional Business Consulting & Corporate Advisory</div>
+        <div>Duluth, GA Headquarters[cite: 9]</div>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <p><strong>Email :</strong> admin@tyusex.shop</p>
-    <p><strong>Téléphone :</strong> +33 7 38 50 26 36</p>
-    <p><strong>Adresse :</strong> Avenue Baratier, Montmorency, 95160, France</p>
-  </section>
+    <header>
+        <div class="brand">
+            <i data-lucide="trending-up"></i> Jopasi LLC
+        </div>
+        <nav>
+            <a href="#about">Overview</a>
+            <a href="#solutions">Advisory Deck</a>
+            <a href="#services">Corporate Services</a>
+            <a href="#contact" class="btn-consult">Consult Team</a>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 HUNANIMA - Tous droits réservés.</p>
-  </footer>
+    <div class="wrapper">
+        <!-- Hero Section -->
+        <section id="about">
+            <div class="hero-text">
+                <span class="hero-badge">Strategic Business Consulting</span>
+                <h1>Driving Corporate Growth & <span>Operational Excellence</span></h1>
+                <p>Jopasi LLC provides premier business consulting, management advisory, and strategic corporate solutions designed to empower enterprises in Duluth, Georgia[cite: 9] and beyond.</p>
 
+                <a href="#contact" class="btn-consult" style="padding: 1rem 2rem; display: inline-block;">Request Consultation</a>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Duluth, GA</h4>
+                        <p>1060 Court Dr[cite: 9]</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Strategic</h4>
+                        <p>Business Advisory</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Corporate</h4>
+                        <p>Solutions & Growth</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Professional business consulting and strategy meeting in modern corporate office">
+                <div class="floating-card">
+                    <i data-lucide="shield-check" size="28"></i>
+                    <div>
+                        <strong style="color: var(--teal-deep); display: block;">Trusted Advisory</strong>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Proven Corporate Results</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Business Solutions Deck Section -->
+        <section id="solutions">
+            <div class="section-header">
+                <span>Core Capabilities</span>
+                <h2>Business Advisory Solutions Deck</h2>
+            </div>
+
+            <div class="deck-container">
+                <div class="deck-tabs">
+                    <button class="deck-tab-btn active" onclick="switchDeck(0)">1. Strategic Consulting</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(1)">2. Operational Optimization</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(2)">3. Growth & Scale</button>
+                </div>
+
+                <!-- Panel 1 -->
+                <div class="deck-panel active">
+                    <div class="panel-text">
+                        <h3>Strategic Business Consulting</h3>
+                        <p>Partnering with enterprise leaders to design comprehensive roadmaps, clarify market positioning, and achieve sustainable growth targets.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Corporate Strategy & Planning</li>
+                            <li><i data-lucide="check-circle-2"></i> Market Analysis & Positioning</li>
+                            <li><i data-lucide="check-circle-2"></i> Executive Advisory Oversight</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Business consultant reviewing analytics and financial reports" class="panel-img">
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Operational Workflow Optimization</h3>
+                        <p>Streamlining internal procedures, eliminating administrative friction, and maximizing enterprise efficiency across all departments.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Workflow & Process Engineering</li>
+                            <li><i data-lucide="check-circle-2"></i> Resource Allocation Management</li>
+                            <li><i data-lucide="check-circle-2"></i> Performance Metrics & KPI Tracking</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Team collaborating on workflow improvement strategy" class="panel-img">
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Enterprise Growth & Scaling</h3>
+                        <p>Equipping growing companies with scalable frameworks, risk mitigation protocols, and long-term expansion strategies.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Expansion Frameworks & Roadmaps</li>
+                            <li><i data-lucide="check-circle-2"></i> Risk Assessment & Mitigation</li>
+                            <li><i data-lucide="check-circle-2"></i> Long-Term Value Creation</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Professional executive leading corporate growth session" class="panel-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services">
+            <div class="section-header">
+                <span>Tailored Services</span>
+                <h2>Comprehensive Corporate Solutions</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Business professionals in advisory meeting">
+                    <div class="service-card-body">
+                        <h3>Management Advisory</h3>
+                        <p>Expert consulting tailored to enhance leadership efficacy, organizational governance, and decision-making frameworks.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Financial and operational data dashboard analysis">
+                    <div class="service-card-body">
+                        <h3>Performance Diagnostics</h3>
+                        <p>In-depth evaluations of corporate operations to identify bottlenecks and unlock hidden revenue opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Diverse corporate team shaking hands after agreement">
+                    <div class="service-card-body">
+                        <h3>Strategic Partnerships</h3>
+                        <p>Guiding organizations through high-level negotiations, joint ventures, and strategic alliance formations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Connect With Jopasi LLC</h2>
+                    <p>Reach out to our Duluth advisory team to discuss your business consulting and corporate growth needs[cite: 9].</p>
+
+                    <div class="info-row">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <label>Direct Support</label>
+                            <strong>support@jopasillc.org</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <label>Telephone Line</label>
+                            <strong>+1 605 979 3502</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <label>Duluth Office</label>
+                            <strong>1060 Court Dr Duluth, GA, 30096-5617 United States[cite: 9]</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name / Company" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Email Address" required>
+                        <select required>
+                            <option value="" disabled selected>Select Service Inquiry</option>
+                            <option>Strategic Business Consulting</option>
+                            <option>Operational Optimization</option>
+                            <option>Management Advisory</option>
+                        </select>
+                    </div>
+                    <textarea rows="5" placeholder="Tell us about your business goals or advisory requirements..." required></textarea>
+                    <button type="submit" class="submit-btn">Send Consultation Request</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-body">
+            <button class="close-btn" onclick="togglePrivacyModal()"><i data-lucide="x" size="24"></i></button>
+            <h3>Privacy Policy</h3>
+
+            <h4>1. Information Collection</h4>
+            <p>JOPASI LLC collects personal and corporate contact details submitted via form inquiries strictly to handle business advisory requests and consultation scheduling.</p>
+
+            <h4>2. Data Security & Confidentiality</h4>
+            <p>We maintain strict administrative safeguards to protect client and corporate data. Details are kept completely confidential and are never rented, sold, or shared with third parties.</p>
+
+            <h4>3. Compliance Contact</h4>
+            <p>For questions regarding our privacy practices, please contact support@jopasillc.org.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy; JOPASI LLC. All rights reserved. Duluth, GA[cite: 9].</p>
+            <div class="footer-links">
+                <a onclick="togglePrivacyModal()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function switchDeck(index) {
+            const buttons = document.querySelectorAll('.deck-tab-btn');
+            const panels = document.querySelectorAll('.deck-panel');
+
+            buttons.forEach((btn, i) => {
+                btn.classList.remove('active');
+                if (i === index) btn.classList.add('active');
+            });
+
+            panels.forEach((panel, i) => {
+                panel.classList.remove('active');
+                if (i === index) panel.classList.add('active');
+            });
+        }
+
+        function togglePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
